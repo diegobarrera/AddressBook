@@ -9,7 +9,7 @@ services:
 - docker
 env:
 - NODE_ENV=test
-- DATABASE_URL=postgres://postgres@postgres/test
+- DATABASE_URL=postgres://postgres@localhost/test
 cache:
   directories:
   - node_modules
@@ -17,12 +17,11 @@ install:
 - npm install
 before_script:
 - npm run lint
-script:
 - npm run mount
+script:
 - npm test
-- npm run umount
 after_success:
-- echo build succeeded    
+- echo build succeeded
 deploy:
   - provider: heroku
     app: diegobarrera
