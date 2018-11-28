@@ -1,3 +1,4 @@
+sudo: required
 dist: trusty
 language: node_js
 node_js:
@@ -16,6 +17,7 @@ cache:
 install:
 - npm install
 before_script:
+- sudo service postgresql stop
 - npm run lint
 - npm run mount
 script:
