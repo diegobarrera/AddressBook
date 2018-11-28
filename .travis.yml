@@ -9,8 +9,9 @@ branches:
 services:
 - docker
 env:
-- NODE_ENV=test
-- DATABASE_URL=postgres://postgres@localhost/test
+  global:
+    - NODE_ENV=test
+    - DATABASE_URL=postgres://postgres@localhost/test
 cache:
   directories:
   - node_modules
